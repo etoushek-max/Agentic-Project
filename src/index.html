@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio page">
+    <title>Personal Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #e5e5e5;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        /* Header section with image and name */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #c0c0c0;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Bio section */
+        .bio {
+            background-color: #d3d3d3;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .bio p {
+            margin: 0;
+        }
+
+        /* Buttons section */
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #4a4a4a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2a2a2a;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:focus {
+            outline: 2px solid #666;
+            outline-offset: 2px;
+        }
+
+        /* Mobile responsive styles - screens less than 768px */
+        @media (max-width: 767px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .bio {
+                padding: 20px;
+                font-size: 14px;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: unset;
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header section -->
+        <header class="header">
+            <!-- Profile image placeholder -->
+            <div class="profile-image" role="img" aria-label="Profile picture placeholder">
+                Image Placeholder
+            </div>
+            <!-- Name heading -->
+            <h1 class="name">Your Name Here</h1>
+        </header>
+
+        <!-- Bio section -->
+        <section class="bio" aria-label="Biography">
+            <p>
+                This is a placeholder paragraph for your biography. Replace this text with your own personal bio, 
+                describing your background, interests, and what makes you unique. You can write about your professional 
+                journey, your passions, and what drives you in your career and personal life.
+            </p>
+        </section>
+
+        <!-- Navigation buttons -->
+        <nav class="buttons-container" aria-label="Main navigation">
+            <a href="#work-experience" class="btn" role="button" aria-label="View work experience">
+                Work Experience
+            </a>
+            <a href="#school-experience" class="btn" role="button" aria-label="View school experience">
+                School Experience
+            </a>
+            <a href="#hobbies" class="btn" role="button" aria-label="View hobbies">
+                Hobbies
+            </a>
+        </nav>
+    </div>
+</body>
+</html>
