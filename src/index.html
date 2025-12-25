@@ -48,6 +48,7 @@
             justify-content: center;
             color: #666;
             font-size: 14px;
+            border: 3px solid #ffd700;
         }
 
         .name {
@@ -65,18 +66,20 @@
             border-radius: 8px;
             color: #333;
             line-height: 1.8;
+            border-left: 4px solid #ffd700;
         }
 
         .bio p {
             margin: 0;
         }
 
-        /* Buttons section */
+        /* Main buttons section */
         .buttons-container {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
         .btn {
@@ -106,7 +109,46 @@
         }
 
         .btn:focus {
-            outline: 2px solid #666;
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
+        }
+
+        /* Bottom buttons section */
+        .bottom-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            min-width: 200px;
+            padding: 18px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6c200;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary:focus {
+            outline: 2px solid #333;
             outline-offset: 2px;
         }
 
@@ -134,16 +176,22 @@
                 font-size: 14px;
             }
 
-            .buttons-container {
+            .buttons-container,
+            .bottom-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
 
-            .btn {
+            .btn,
+            .btn-secondary {
                 width: 100%;
                 min-width: unset;
                 padding: 15px 20px;
                 font-size: 16px;
+            }
+
+            .btn-secondary {
+                font-size: 15px;
             }
         }
     </style>
@@ -170,7 +218,7 @@
             </p>
         </section>
 
-        <!-- Navigation buttons -->
+        <!-- Main navigation buttons -->
         <nav class="buttons-container" aria-label="Main navigation">
             <a href="#work-experience" class="btn" role="button" aria-label="View work experience">
                 Work Experience
@@ -180,6 +228,16 @@
             </a>
             <a href="#hobbies" class="btn" role="button" aria-label="View hobbies">
                 Hobbies
+            </a>
+        </nav>
+
+        <!-- Bottom buttons for contact and resume -->
+        <nav class="bottom-buttons" aria-label="Contact and resume links">
+            <a href="#contact" class="btn-secondary" role="button" aria-label="View contact page">
+                Contact
+            </a>
+            <a href="#resume" class="btn-secondary" role="button" aria-label="View resume">
+                Resume
             </a>
         </nav>
     </div>
