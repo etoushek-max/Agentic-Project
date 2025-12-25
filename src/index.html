@@ -18,9 +18,6 @@
             background-color: #e5e5e5;
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
 
@@ -28,6 +25,7 @@
         .container {
             max-width: 900px;
             width: 100%;
+            margin: 0 auto;
             padding: 40px;
         }
 
@@ -41,14 +39,10 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background-color: #c0c0c0;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 14px;
-            border: 3px solid #ffd700;
+            display: block;
+            object-fit: cover;
+            border: 3px solid #333;
         }
 
         .name {
@@ -66,7 +60,6 @@
             border-radius: 8px;
             color: #333;
             line-height: 1.8;
-            border-left: 4px solid #ffd700;
         }
 
         .bio p {
@@ -109,7 +102,7 @@
         }
 
         .btn:focus {
-            outline: 2px solid #ffd700;
+            outline: 2px solid #666;
             outline-offset: 2px;
         }
 
@@ -127,8 +120,8 @@
             padding: 18px 28px;
             font-size: 16px;
             font-weight: 600;
-            color: #333;
-            background-color: #ffd700;
+            color: #fff;
+            background-color: #4a4a4a;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -139,7 +132,7 @@
         }
 
         .btn-secondary:hover {
-            background-color: #e6c200;
+            background-color: #2a2a2a;
             transform: translateY(-2px);
         }
 
@@ -148,8 +141,85 @@
         }
 
         .btn-secondary:focus {
-            outline: 2px solid #333;
+            outline: 2px solid #666;
             outline-offset: 2px;
+        }
+
+        /* Content pages */
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #4a4a4a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background-color: #2a2a2a;
+        }
+
+        .page-content {
+            background-color: #d3d3d3;
+            padding: 30px;
+            border-radius: 8px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .page-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .page-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .page-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .page-content li {
+            margin-bottom: 8px;
         }
 
         /* Mobile responsive styles - screens less than 768px */
@@ -193,53 +263,199 @@
             .btn-secondary {
                 font-size: 15px;
             }
+
+            .page-title {
+                font-size: 22px;
+            }
+
+            .page-content {
+                padding: 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Main container -->
     <div class="container">
-        <!-- Header section -->
-        <header class="header">
-            <!-- Profile image placeholder -->
-            <div class="profile-image" role="img" aria-label="Profile picture placeholder">
-                Image Placeholder
+        <!-- Home page -->
+        <div id="home" class="page active">
+            <!-- Header section -->
+            <header class="header">
+                <!-- Profile image -->
+                <img src="bajaheadshot.png" alt="Profile picture" class="profile-image">
+                <!-- Name heading -->
+                <h1 class="name">Your Name Here</h1>
+            </header>
+
+            <!-- Bio section -->
+            <section class="bio" aria-label="Biography">
+                <p>
+                    This is a placeholder paragraph for your biography. Replace this text with your own personal bio, 
+                    describing your background, interests, and what makes you unique. You can write about your professional 
+                    journey, your passions, and what drives you in your career and personal life.
+                </p>
+            </section>
+
+            <!-- Main navigation buttons -->
+            <nav class="buttons-container" aria-label="Main navigation">
+                <a href="#work-experience" class="btn" role="button" aria-label="View work experience" onclick="showPage('work-experience'); return false;">
+                    Work Experience
+                </a>
+                <a href="#school-experience" class="btn" role="button" aria-label="View school experience" onclick="showPage('school-experience'); return false;">
+                    School Experience
+                </a>
+                <a href="#hobbies" class="btn" role="button" aria-label="View hobbies" onclick="showPage('hobbies'); return false;">
+                    Hobbies
+                </a>
+            </nav>
+
+            <!-- Bottom buttons for contact and resume -->
+            <nav class="bottom-buttons" aria-label="Contact and resume links">
+                <a href="#contact" class="btn-secondary" role="button" aria-label="View contact page" onclick="showPage('contact'); return false;">
+                    Contact
+                </a>
+                <a href="#resume" class="btn-secondary" role="button" aria-label="View resume" onclick="showPage('resume'); return false;">
+                    Resume
+                </a>
+            </nav>
+        </div>
+
+        <!-- Work Experience page -->
+        <div id="work-experience" class="page">
+            <header class="page-header">
+                <h2 class="page-title">Work Experience</h2>
+                <a href="#home" class="back-btn" onclick="showPage('home'); return false;">← Back to Home</a>
+            </header>
+            <div class="page-content">
+                <h3>Job Title - Company Name</h3>
+                <p><strong>Date:</strong> Month Year - Present</p>
+                <ul>
+                    <li>Add your key responsibilities and achievements here</li>
+                    <li>Highlight important projects you worked on</li>
+                    <li>Include measurable results when possible</li>
+                </ul>
+
+                <h3>Previous Job Title - Company Name</h3>
+                <p><strong>Date:</strong> Month Year - Month Year</p>
+                <ul>
+                    <li>Add your key responsibilities and achievements here</li>
+                    <li>Highlight important projects you worked on</li>
+                    <li>Include measurable results when possible</li>
+                </ul>
             </div>
-            <!-- Name heading -->
-            <h1 class="name">Your Name Here</h1>
-        </header>
+        </div>
 
-        <!-- Bio section -->
-        <section class="bio" aria-label="Biography">
-            <p>
-                This is a placeholder paragraph for your biography. Replace this text with your own personal bio, 
-                describing your background, interests, and what makes you unique. You can write about your professional 
-                journey, your passions, and what drives you in your career and personal life.
-            </p>
-        </section>
+        <!-- School Experience page -->
+        <div id="school-experience" class="page">
+            <header class="page-header">
+                <h2 class="page-title">School Experience</h2>
+                <a href="#home" class="back-btn" onclick="showPage('home'); return false;">← Back to Home</a>
+            </header>
+            <div class="page-content">
+                <h3>Degree Name - University Name</h3>
+                <p><strong>Date:</strong> Month Year - Month Year</p>
+                <ul>
+                    <li>Major/Minor information</li>
+                    <li>Relevant coursework</li>
+                    <li>Academic achievements and honors</li>
+                    <li>GPA (if you wish to include)</li>
+                </ul>
 
-        <!-- Main navigation buttons -->
-        <nav class="buttons-container" aria-label="Main navigation">
-            <a href="#work-experience" class="btn" role="button" aria-label="View work experience">
-                Work Experience
-            </a>
-            <a href="#school-experience" class="btn" role="button" aria-label="View school experience">
-                School Experience
-            </a>
-            <a href="#hobbies" class="btn" role="button" aria-label="View hobbies">
-                Hobbies
-            </a>
-        </nav>
+                <h3>Previous Education</h3>
+                <p><strong>Date:</strong> Month Year - Month Year</p>
+                <ul>
+                    <li>Add additional education details here</li>
+                    <li>Certifications or special programs</li>
+                </ul>
+            </div>
+        </div>
 
-        <!-- Bottom buttons for contact and resume -->
-        <nav class="bottom-buttons" aria-label="Contact and resume links">
-            <a href="#contact" class="btn-secondary" role="button" aria-label="View contact page">
-                Contact
-            </a>
-            <a href="#resume" class="btn-secondary" role="button" aria-label="View resume">
-                Resume
-            </a>
-        </nav>
+        <!-- Hobbies page -->
+        <div id="hobbies" class="page">
+            <header class="page-header">
+                <h2 class="page-title">Hobbies</h2>
+                <a href="#home" class="back-btn" onclick="showPage('home'); return false;">← Back to Home</a>
+            </header>
+            <div class="page-content">
+                <h3>Personal Interests</h3>
+                <p>Share your hobbies and interests that showcase your personality and what you enjoy doing outside of work or school.</p>
+                <ul>
+                    <li>Hobby or interest #1</li>
+                    <li>Hobby or interest #2</li>
+                    <li>Hobby or interest #3</li>
+                    <li>Hobby or interest #4</li>
+                </ul>
+
+                <h3>Activities</h3>
+                <p>Include any clubs, organizations, or activities you participate in.</p>
+                <ul>
+                    <li>Activity #1</li>
+                    <li>Activity #2</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact page -->
+        <div id="contact" class="page">
+            <header class="page-header">
+                <h2 class="page-title">Contact</h2>
+                <a href="#home" class="back-btn" onclick="showPage('home'); return false;">← Back to Home</a>
+            </header>
+            <div class="page-content">
+                <h3>Get In Touch</h3>
+                <p>Feel free to reach out to me through any of the following channels:</p>
+                <ul>
+                    <li><strong>Email:</strong> your.email@example.com</li>
+                    <li><strong>Phone:</strong> (123) 456-7890</li>
+                    <li><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</li>
+                    <li><strong>GitHub:</strong> github.com/yourusername</li>
+                    <li><strong>Location:</strong> Your City, State</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Resume page -->
+        <div id="resume" class="page">
+            <header class="page-header">
+                <h2 class="page-title">Resume</h2>
+                <a href="#home" class="back-btn" onclick="showPage('home'); return false;">← Back to Home</a>
+            </header>
+            <div class="page-content">
+                <h3>Professional Summary</h3>
+                <p>Add a brief professional summary highlighting your key skills, experience, and career objectives.</p>
+
+                <h3>Skills</h3>
+                <ul>
+                    <li>Skill category 1: List relevant skills</li>
+                    <li>Skill category 2: List relevant skills</li>
+                    <li>Skill category 3: List relevant skills</li>
+                </ul>
+
+                <h3>Download Resume</h3>
+                <p>Click below to download a PDF version of my resume.</p>
+                <a href="your-resume.pdf" class="back-btn" download>Download PDF</a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Page navigation function
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
 </body>
 </html>
